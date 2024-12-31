@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новогодняя игра</title>
+    <style>
+        body {
+            background-color: #1e1e2f;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .game-button {
+            background: linear-gradient(135deg, #6a1b9a, #8e24aa);
+            color: #ffffff;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 10px;
+            text-transform: uppercase;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .game-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(142, 36, 170, 0.6);
+        }
+
+        .game-button:active {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(142, 36, 170, 0.4);
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 2px solid #8e24aa;
+            margin: 10px;
+            width: 100px;
+            text-align: center;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #8e24aa;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Угадай персонажа</h1>
+    <div class="button-container">
+        <input type="number" id="numberInput" min="1" max="100" placeholder="От 1 до 100">
+        <button class="game-button" onclick="generatePhrase()">Подтвердить</button>
+    </div>
+
+    <div id="result"></div>
+
+    <script>
+        const phrases = [
+"Шерлок Холмс",
+"Гарри Поттер",
+"Гомер Симпсон",
+"Гарфилд",
+"Том и Джерри",
+"Микки Маус",
+"Багс Бани",
+"Кинг Конг",
+"Индиана Джонс",
+"Джеймс Бонд",
+"Шрек",
+"Принцесса Фиона",
+"Скуби-Ду",
+"Лара Крофт",
+"Джонни Депп",
+"Люк Скайуокер",
+"Дедпул",
+"Росомаха",
+"Флэш",
+"Супермен",
+"Бэтмен",
+"Спайдермен",
+"Тоня Старк",
+"Человек-муравей",
+"Тор",
+"Капитан Америка",
+"Халк",
+"Дарт Вейдер",
+"Леонардо ДиКаприо",
+"Дональд Дак",
+"Дейнерис Таргариен",
+"Рик Санчес",
+"Тимон",
+"Пумба",
+"Зверь",
+"Белль",
+"Малефисента",
+"Гарри Поттер",
+"Смурфики",
+"Кот в сапогах",
+"Эмилия Кларк",
+"Грета Гарбо",
+"Шерлок Холмс",
+"Скуби-Ду",
+"Чудо-женщина",
+"Петя Каротин",
+"Пепе ле Пью",
+"Том Редд",
+"Рей",
+"Зена",
+"Профессор Х",
+"Гандальф",
+"Волшебник Оз",
+"Человек-Паук",
+"Джеймс Бонд",
+"Доктор Стрэндж",
+"Тоня Старк",
+"Супермен",
+"Гарри Поттер",
+"Спайдермен",
+"Барти Симпсон",
+"Гомер Симпсон",
+"Мардж Симпсон",
+"Шрек",
+"Принцесса Фиона",
+"Джон Сноу",
+"Человек-муравей",
+"Флэш",
+"Рик Санчес",
+"Лара Крофт",
+"Гарфилд",
+"Микки Маус",
+"Петя Каротин",
+"Гарри Поттер",
+"Грета Тунберг",
+"Багс Бани",
+"Гомер Симпсон",
+"Том и Джерри",
+"Шрек",
+"Индиана Джонс",
+"Микки Маус",
+"Скуби-Ду",
+"Леонардо ДиКаприо",
+"Зена",
+"Барти Симпсон",
+"Росомаха",
+"Петя Каротин",
+"Смурфики",
+"Грета Гарбо",
+"Шерлок Холмс",
+"Белль",
+"Рей",
+"Гарри Поттер",
+"Том и Джерри",
+"Зверь",
+"Шрек",
+"Тимон",
+"Пумба",
+"Гарфилд",
+"Люк Скайуокер"
+        ];
+
+        function generatePhrase() {
+            const number = parseInt(document.getElementById('numberInput').value);
+            if (number >= 1 && number <= 100) {
+                document.getElementById('result').textContent = phrases[number - 1];
+            } else {
+                document.getElementById('result').textContent = "Пожалуйста, выберите число от 1 до 100.";
+            }
+        }
+    </script>
+    <h3>Вы должны сказать тост от лица этого персонажа, а остальные должны угадать кто вы</h3>
+</body>
+</html>

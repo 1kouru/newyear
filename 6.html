@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новогодняя игра</title>
+    <style>
+        body {
+            background-color: #1e1e2f;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .game-button {
+            background: linear-gradient(135deg, #6a1b9a, #8e24aa);
+            color: #ffffff;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 10px;
+            text-transform: uppercase;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .game-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(142, 36, 170, 0.6);
+        }
+
+        .game-button:active {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(142, 36, 170, 0.4);
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 2px solid #8e24aa;
+            margin: 10px;
+            width: 100px;
+            text-align: center;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #8e24aa;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Забавная география</h1>
+    <div class="button-container">
+        <input type="number" id="numberInput" min="1" max="100" placeholder="От 1 до 100">
+        <button class="game-button" onclick="generatePhrase()">Подтвердить</button>
+    </div>
+
+    <div id="result"></div>
+
+    <script>
+        const phrases = [
+"Пельменьвия",
+"Республика Картонных Лошадей",
+"Шампиньонландия",
+"Гроза Молочных Ведер",
+"Республика Блины",
+"Королевство Протёртого Пельменя",
+"Страна Вечно Потерянных Носок",
+"Утробия",
+"Губка-Планетия",
+"Капустная Республика",
+"Земля Пуделя",
+"Тигровая Кусня",
+"Горнолавровый Союз",
+"Лягушечия",
+"Перечница",
+"Тыквоград",
+"Царство Банановых Революций",
+"Облачный Суп",
+"Страна Молочного Чая",
+"Котокащенка",
+"Странноперепутие",
+"Долина Шариков",
+"Хрустальная Пельменина",
+"Планетария",
+"Гавкотия",
+"Ягодная Утопия",
+"Мультяшное Царство",
+"Чудо-Пельмени",
+"Земля Пухляшей",
+"Кефироград",
+"Палата Овощей",
+"Квакотопия",
+"Плавниковая Республика",
+"Какаошаня",
+"Поросёнкославия",
+"Гимнастический Союз Бутербродов",
+"Зеленая Чудо-Лужа",
+"Невыносимая Картонная Долина",
+"Гавкостания",
+"Скорлупинштейн",
+"Город Пластилиновых Фау",
+"Тортоглавия",
+"Гречевалия",
+"Кисломолочный Союз",
+"Суповый Лес",
+"Гроза Коровьего Молока",
+"Царство Шоколадных Пачек",
+"Запаховия",
+"Кототрон",
+"Ласточкинская Империя",
+"Фрикаделкия",
+"Пельменярия",
+"Шарлоткастро",
+"Картонное Королевство",
+"Шкуранская Республика",
+"Голубое Курятино",
+"Котомускания",
+"Томатная Сфера",
+"Грозный Супчик",
+"Ушастиквия",
+"Грушельная Федерация",
+"Туфельный Союз",
+"Шляпинделия",
+"Кабачкозавр",
+"Техногречка",
+"Тыквоголия",
+"Горячий Леденец",
+"Пельменидельфия",
+"Огуречный Союз",
+"Заплесневелый Город",
+"Магнитоплёнка",
+"Вишневка-О-Ля",
+"Гречаносоковия",
+"Забытая Чаша",
+"Дебилизмания",
+"Свиноглотия",
+"Цыплякулдия",
+"Республяндикус",
+"Зубной Союз",
+"Железные Крокодилы",
+"Картопийя",
+"Молочная Угроза",
+"Пельменьтиха",
+"Тваревельдия",
+"Шерстяная Нива",
+"Хлопкопланетия",
+"Скворцополис",
+"Ватрушкодержава",
+"Пельменохан",
+"Запеченная Республика",
+"Цветозавр",
+"Хамелеоновые Просторы",
+"Железная Молния",
+"Печеничний Союз",
+"Джунгли Листьев",
+"Леденцовый Лес",
+"Тушенкизм",
+"Гаражополис",
+"Супермолоко",
+"Облачная Ананасия"
+        ];
+
+        function generatePhrase() {
+            const number = parseInt(document.getElementById('numberInput').value);
+            if (number >= 1 && number <= 100) {
+                document.getElementById('result').textContent = phrases[number - 1];
+            } else {
+                document.getElementById('result').textContent = "Пожалуйста, выберите число от 1 до 100.";
+            }
+        }
+    </script>
+    <h3>Вы должны придумать и рассказать факт, как будто это реально существующий город или страна.</h3>
+</body>
+</html>
